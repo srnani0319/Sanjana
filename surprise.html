@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+
+:root {
+  --pink: #ff5c93;
+  --rose: #ffb5cb;
+  --cream: #fff8f7;
+  --ink: #4b2335;
+  --muted: #80566a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(
+    135deg,
+    #fff7fa,
+    #ffe2eb,
+    #fff2e8
+  );
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: 0.45;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 18px 14px;
+}
+
+nav a {
+  color: #8c3c60;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #ffffff9c;
+  border: 1px solid white;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background: var(--pink);
+  color: white;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 75vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+  text-align: center;
+}
+
+.hero-card {
+  max-width: 800px;
+  width: 100%;
+  padding: clamp(28px, 6vw, 64px);
+  border: 1px solid white;
+  border-radius: 32px;
+  background: #ffffffb0;
+  box-shadow: 0 24px 80px #ae37621f;
+}
+
+.eyebrow {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: #b34d73;
+  font-weight: 800;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.98;
+  margin: 22px 0 18px;
+  font-weight: 500;
+}
+
+h1 span {
+  color: var(--pink);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.22rem);
+  line-height: 1.8;
+  max-width: 620px;
+  margin: 0 auto 30px;
+  color: #75485b;
+}
+
+.button {
+  display: inline-block;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 14px 23px;
+  color: white;
+  background: linear-gradient(100deg, #ff6398, #f0447d);
+  box-shadow: 0 10px 25px #f0447d40;
+  transition: transform 0.2s;
+  margin: 5px;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button.secondary {
+  background: white;
+  color: #c43c70;
+  border: 1px solid #ffd0df;
+}
+
+section {
+  padding: 55px 18px 75px;
+}
+
+.section-inner {
+  max-width: 950px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font: 500 clamp(2rem, 5vw, 3.5rem) Georgia, serif;
+  margin: 0 0 14px;
+}
+
+.section-intro {
+  text-align: center;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0 auto 34px;
+}
+
+.letter {
+  max-width: 760px;
+  margin: auto;
+  padding: clamp(24px, 5vw, 48px);
+  background: #fffdfd;
+  border-radius: 24px;
+  box-shadow: 0 18px 55px #9e426016;
+  border: 1px solid white;
+}
+
+.letter p {
+  line-height: 1.95;
+  font-size: 1.05rem;
+}
+
+.signature {
+  color: #e84d87;
+  font: italic 1.6rem Georgia, serif;
+  margin-top: 25px;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(210px, 1fr)
+  );
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.reason {
+  background: #ffffffb8;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px #9e42600b;
+}
+
+.emoji {
+  font-size: 2rem;
+}
+
+.reason h3 {
+  font: 500 1.3rem Georgia, serif;
+  margin: 12px 0 8px;
+}
+
+.reason p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gallery figure {
+  margin: 0;
+  background: white;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px #9e426016;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 13px;
+  background: #ffe2eb;
+}
+
+.gallery figcaption {
+  text-align: center;
+  padding: 12px 6px 5px;
+  color: var(--muted);
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #96677a;
+  text-align: center;
+  line-height: 1.7;
+  margin: 24px auto 0;
+  max-width: 700px;
+}
+
+.pager {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 25px auto 0;
+}
+
+#wishMessage {
+  margin-top: 22px;
+  font-weight: 700;
+  color: #d83f79;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #a16b7f;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+
+.burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  font-size: 22px;
+  animation: burst 1.5s ease-out forwards;
+}
+
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--x), var(--y))
+      rotate(180deg) scale(1.3);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery figure:last-child {
+    grid-column: 1 / -1;
+    max-width: 70%;
+    justify-self: center;
+  }
+
+  nav {
+    gap: 6px;
+  }
+
+  nav a {
+    padding: 9px 11px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+</style>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Last Surprise 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="wishes.html">Wishes</a>
+    <a href="love.html">Our Love</a>
+    <a href="memories.html">Memories</a>
+    <a href="surprise.html" aria-current="page">Surprise</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">The final surprise</div>
+        <h1>Make a wish,<br><span>birthday girl!</span> 🎂</h1>
+
+        <p class="subtitle">
+          Close your eyes, make your sweetest wish,
+          and tap the button. I hope this year gives you
+          a thousand reasons to smile.
+        </p>
+
+        <button class="button" id="wishBtn" type="button">
+          Send you a shower of love 💖
+        </button>
+
+        <p id="wishMessage" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <article class="letter">
+          <h2 class="section-title">One last thing…</h2>
+
+          <p>
+            I may not always find the perfect words, but I hope
+            you never doubt this: you matter to me so much.
+            I’m grateful for your smile, your heart, and every
+            memory we get to make.
+          </p>
+
+          <p>
+            May your birthday be full of warmth, laughter,
+            hugs, cake, and all the little things that make
+            you happiest. Keep dreaming big and never forget
+            how loved you are.
+          </p>
+
+          <div class="signature">
+            Happy birthday, my love. Always. 💗
+          </div>
+        </article>
+
+        <div class="pager">
+          <a class="button secondary" href="memories.html">
+            ← Back to memories
+          </a>
+          <a class="button" href="index.html">
+            Start again ↻
+          </a>
+        </div>
+      </div>
+    </section>
+    <script>
+   
+   
+const hearts = document.getElementById("hearts");
+
+if (hearts) {
+  const symbols = ["♡", "♥", "✦", "✧"];
+
+  for (let i = 0; i < 22; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (14 + Math.random() * 24) + "px";
+    heart.style.animationDuration = (10 + Math.random() * 15) + "s";
+    heart.style.animationDelay = (-Math.random() * 20) + "s";
+
+    hearts.appendChild(heart);
+  }
+}
+
+const wishBtn = document.getElementById("wishBtn");
+
+if (wishBtn) {
+  wishBtn.addEventListener("click", (event) => {
+    const message = document.getElementById("wishMessage");
+
+    if (message) {
+      message.textContent =
+        "Wish sent! May your day be as lovely as your heart. I love you! 💗";
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const symbols = ["♡", "♥", "✦", "✧"];
+
+    for (let i = 0; i < 34; i++) {
+      const particle = document.createElement("span");
+
+      particle.className = "burst";
+      particle.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      particle.style.left = centerX + "px";
+      particle.style.top = centerY + "px";
+
+      particle.style.setProperty(
+        "--x",
+        (Math.random() * 440 - 220) + "px"
+      );
+
+      particle.style.setProperty(
+        "--y",
+        (Math.random() * -360 - 40) + "px"
+      );
+
+      document.body.appendChild(particle);
+
+      setTimeout(() => particle.remove(), 1600);
+    }
+  });
+}
+
+   
+   
+    </script>
+   
+   
+   
+  </main>
+
+  <footer>Made with ♡ just for you · Happy Birthday!</footer>
+  <script src="script.js"></script>
+</body>
+</html>
