@@ -358,6 +358,236 @@ footer {
 
 
 
+cake-surprise {
+  max-width: 650px;
+  margin: 35px auto;
+  padding: 35px 15px;
+  text-align: center;
+  background: #ffffffa8;
+  border: 1px solid white;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px #ae37621f;
+}
+
+.cake-surprise h2 {
+  color: #e84d87;
+  font-family: Georgia, serif;
+}
+
+.cake-surprise p {
+  color: #80566a;
+  line-height: 1.8;
+}
+
+.birthday-cake {
+  position: relative;
+  width: min(330px, 95%);
+  height: 265px;
+  margin: 55px auto 25px;
+}
+
+.candles {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 245px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.candle {
+  position: relative;
+  width: 24px;
+  height: 100px;
+}
+
+.candle-stick {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  width: 16px;
+  height: 72px;
+  border-radius: 5px 5px 3px 3px;
+  background: repeating-linear-gradient(
+    135deg,
+    #ff75a4 0 7px,
+    #fff0f5 7px 14px
+  );
+  box-shadow: 0 0 7px #e84d8720;
+}
+
+.wick {
+  position: absolute;
+  top: 20px;
+  left: 11px;
+  width: 3px;
+  height: 10px;
+  background: #604035;
+  z-index: 2;
+}
+
+.flame {
+  position: absolute;
+  top: -8px;
+  left: 2px;
+  width: 22px;
+  height: 32px;
+  background: radial-gradient(
+    ellipse at 50% 65%,
+    #fffbd0 0 20%,
+    #ffe65c 38%,
+    #ff9b32 72%,
+    #ff6699 100%
+  );
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 0 0 18px #ffbd45;
+  cursor: pointer;
+  z-index: 5;
+  touch-action: manipulation;
+  animation: candleFlicker 0.7s infinite alternate;
+}
+
+.flame:focus-visible {
+  outline: 3px solid #e84d87;
+  outline-offset: 5px;
+}
+
+@keyframes candleFlicker {
+  from {
+    transform: rotate(-5deg) scale(1);
+  }
+  to {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+.flame.off {
+  display: none;
+}
+
+.cake-top {
+  position: absolute;
+  top: 91px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 48px;
+  background: #fff0f5;
+  border: 3px solid #ffb3ce;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 21px;
+  z-index: 2;
+}
+
+.cake-middle {
+  position: absolute;
+  top: 111px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 62px;
+  background: linear-gradient(
+    90deg,
+    #ff9fbd,
+    #ffd5e2,
+    #ff8db4
+  );
+  border-radius: 0 0 15px 15px;
+  display: grid;
+  place-items: center;
+  color: #a32e60;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 17px;
+  box-shadow: inset 0 -8px 0 #f47da6;
+  z-index: 1;
+}
+
+.cake-bottom {
+  position: absolute;
+  top: 163px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  height: 65px;
+  border-radius: 0 0 24px 24px;
+  background: linear-gradient(
+    90deg,
+    #f46b9a,
+    #ffc5d8,
+    #f46b9a
+  );
+  border-bottom: 7px solid #e75488;
+  color: #d63376;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 5px;
+  font-size: 17px;
+}
+
+.cake-plate {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 20px;
+  background: linear-gradient(#fff, #ffc6dc);
+  border: 2px solid #ffb3ce;
+  border-radius: 50%;
+  box-shadow: 0 8px 15px #b83d6b20;
+}
+
+#birthdayMessage {
+  margin: 25px auto 0;
+  padding: 20px;
+  max-width: 460px;
+  border-radius: 20px;
+  background: #fff0f5;
+  border: 1px solid #ffc5d8;
+  animation: messageAppear 0.8s ease both;
+}
+
+#birthdayMessage[hidden] {
+  display: none !important;
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 400px) {
+  .birthday-cake {
+    transform: scale(0.88);
+    transform-origin: top center;
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+      
+
+
+
 </style>
 <head>
   <meta charset="UTF-8">
@@ -376,7 +606,7 @@ footer {
   </nav>
 
   <main>
-    <section class="hero">
+    <!--<section class="hero">
       <div class="hero-card">
         <div class="eyebrow">From my heart</div>
         <h1>A letter<br><span>for you ANUSHA 🤗</span> 💌</h1>
@@ -385,7 +615,50 @@ footer {
           a simple “happy birthday.”
         </p>
       </div>
-    </section>
+    </section>-->
+
+
+    <div class="cake-surprise">
+  <h2>Make a Wish, Raadhamma! 💖</h2>
+  <p>Touch any candle flame to blow out the candles. 🕯️</p>
+
+  <div class="birthday-cake">
+    <div class="candles">
+      <div class="candle">
+        <span class="flame" role="button" tabindex="0"
+          aria-label="Blow out candle 1"></span>
+        <span class="wick"></span>
+        <span class="candle-stick"></span>
+      </div>
+
+      <div class="candle">
+        <span class="flame" role="button" tabindex="0"
+          aria-label="Blow out candle 2"></span>
+        <span class="wick"></span>
+        <span class="candle-stick"></span>
+      </div>
+
+      <div class="candle">
+        <span class="flame" role="button" tabindex="0"
+          aria-label="Blow out candle 3"></span>
+        <span class="wick"></span>
+        <span class="candle-stick"></span>
+      </div>
+
+      <div class="candle">
+        <span class="flame" role="button" tabindex="0"
+          aria-label="Blow out candle 4"></span>
+        <span class="wick"></span>
+        <span class="candle-stick"></span>
+      </div>
+
+      <div class="candle">
+        <span class="flame" role="button" tabindex="0"
+          aria-label="Blow out candle 5"></span>
+        <span class="wick"></span>
+        <span class="candle-stick"></span>
+      </div>
+    </div>
 
     <section>
       <div class="section-inner">
